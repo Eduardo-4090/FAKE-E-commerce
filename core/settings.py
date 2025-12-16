@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'contas',
+    'cloudinary_storage'
     ]
 
 MIDDLEWARE = [
@@ -117,9 +118,17 @@ STATIC_URL = 'static/'
 STATIC_ROOT = (os.path.join(BASE_DIR / 'staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join( BASE_DIR / 'media')
-FILE_UPLOAD_PERMISSIONS = 0o644
+# --- 1. Chaves lidas das Variáveis de Ambiente (Railway) ---
+CLOUDINARY_CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
+CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
+CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+
+# --- 2. Define o Cloudinary como o sistema de armazenamento padrão para uploads (Mídia) ---
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = os.path.join( BASE_DIR / 'media')
+
 
 # Detecta HTTPS via proxy do Railway
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
