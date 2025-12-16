@@ -1,0 +1,225 @@
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(214, 211, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- TOPO E HEADER --- */
+.topo {
+    width: 100%;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.topo a {
+    font-size: 30px;
+}
+.alert{
+    position: fixed;
+    top: 80px;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
+header input {
+    width: 45%;
+    max-width: 500px;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin-top: 10px;
+}
+
+/* --- SEÇÃO PRINCIPAL DO PRODUTO (.conteine-produto) --- */
+.conteine-produto {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Essencial: Garante que as colunas comecem no topo */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* --- COLUNA DA ESQUERDA: IMAGENS (.imgs) --- */
+.imgs {
+    flex: 0 0 45%; /* 45% da largura */
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.img-principal {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.img-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Galeria de Miniaturas */
+.conteine-img {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.mini-img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.mini-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mini-img.ativo,
+.mini-img:hover {
+    border-color: #ff5722;
+    border-width: 2px;
+}
+
+/* --- COLUNA DA DIREITA: INFORMAÇÕES (.info-produto) --- */
+.info-produto {
+    flex: 1 1 55%; /* 55% da largura */
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-left: 1px solid #eee;
+}
+
+/* --- TÍTULO DO PRODUTO (.titulo) --- */
+.titulo {
+    width: 100%;
+    height: 240px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.titulo h2 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.2;
+    /* Garante a quebra de linha dentro da coluna de 55% */
+    overflow-wrap: break-word;
+}
+
+/* --- PREÇO DO PRODUTO (.preco-produto) --- */
+.preco-produto {
+    margin-bottom: 30px;
+    /* Estilo para a classe 'preco' que você tinha, renomeada para 'preco-atual' */
+}
+
+.preco-produto .preco {
+    font-size: 36px;
+    font-weight: bold;
+    color: #28a745; /* Cor de destaque para o preço */
+}
+
+/* --- AÇÕES DE COMPRA (.acao-compra) --- */
+.acao-compra button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.acao-compra .btn-comprar {
+    background-color: #007bff; /* Azul primário */
+    color: white;
+}
+
+.acao-compra .btn-comprar:hover {
+    background-color: #0056b3;
+}
+
+.acao-compra .btn-carrinho {
+    background-color: #fff;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.acao-compra .btn-carrinho:hover {
+    background-color: #f0f8ff;
+}
+.conteine-descrition{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+.info-descrition{
+    width: 80%;
+}

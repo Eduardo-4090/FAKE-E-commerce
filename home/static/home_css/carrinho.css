@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgb(214, 211, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.alert {
+    position: fixed;
+    top: 80px;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 20px;
+    z-index: 1;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.topo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    text-align: center;
+}
+.topo span {
+    color: orange;
+}
+
+.geral {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+.produto-carrinho {
+    width: 100%;
+}
+.produto-carrinho p {
+    font-size: 25px;
+    
+}
+.vazio{
+    text-align: center;
+}
+
+.produto {
+    display: flex;
+    width: 80%;
+    height: 150px;
+    border: solid grey 1px;
+    margin: 15px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    transition: transform 2.5;
+}
+.produto:hover{
+    transform: translateY(-5px);
+    box-shadow: grey 0px 0px 40px;
+}
+.produto a {
+    display: flex;
+    flex-grow: 1;
+    text-decoration-line: none;
+    color: black;
+    align-items: center; 
+}
+
+.conteine-img {
+    width: 180px;
+    height: 150px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+}
+
+.info {
+    flex-grow: 1; 
+    width: auto;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0;
+}
+.title {
+    font-size: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1 ;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+.descrition p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    font-weight: 600;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+.valores p {
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+}
+
+.info2 {
+    flex-grow: 0;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-left: solid 1px lightgray;
+}
+
+.botoes {
+    width: 100%;
+    height: 30px;
+}
+.botoes form{
+    width: 100%;
+    height: 100%;
+}
+.botoes button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    background: none;
+    border: none;
+    
+}
+.quantidade p {
+    font-size: 16px;
+    font-weight: bold;
+}

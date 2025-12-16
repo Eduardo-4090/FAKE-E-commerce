@@ -1,0 +1,135 @@
+/* Reset Básico */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do Corpo da Página */
+body {
+    /* Use 100% de largura e min-height para garantir que o contêiner centralize */
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(177, 175, 175);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 20px;
+}
+.alert { 
+     padding: 15px; 
+     margin: 10px 0; 
+     border-radius: 50px;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+     font-size: 20px;
+}
+.alert-success{
+    background-color: #d4edda ;
+      color: #155724;
+}
+.alert-error { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+}
+/* Contêiner Principal de Login */
+.login-container {
+    background-color: white;
+    width: 90%; 
+    max-width: 450px; /* Largura máxima ideal */
+    padding: 30px; /* Aumentado ligeiramente para mais espaço interno */
+    border-radius: 10px; /* Borda um pouco mais arredondada */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais destacada */
+}
+
+/* Cabeçalho (LOGIN/CADASTRO) */
+.header {
+    width: 100%;
+    padding: 0 0 1.5rem 0; /* Espaçamento abaixo do cabeçalho */
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.2rem; 
+    color: #333;
+    border-bottom: 2px solid #007bff; /* Linha de destaque para o título */
+    display: inline-block; /* Ajusta a linha de destaque à largura do texto */
+    padding-bottom: 5px;
+}
+
+/* Área do Formulário */
+.forms-area {
+    width: 100%;
+    /* Não precisa de alinhamento extra aqui, o formulário já está em coluna */
+}
+
+.forms-area form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estilo para Rótulos (Labels) */
+.forms-area label {
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333; /* Cor mais escura para melhor legibilidade */
+}
+
+/* Estilo para Campos de Input */
+.forms-area input[type="text"],
+.forms-area input[type="password"],
+.forms-area input[type="email"] { /* Adicionado input[type="email"] para o Cadastro */
+    padding: 0.9rem;
+    border: 1px solid #ddd; /* Borda mais clara */
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.forms-area input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Adicionado um foco suave */
+    outline: none;
+}
+
+a{
+   text-decoration-line: none;
+   margin-top: 10px;
+}
+
+/* Estilo para o Botão de Envio (Submit) */
+.submit-button {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.submit-button:active {
+    transform: translateY(1px); /* Efeito de clique */
+}
+
+/* --- Media Query para Dispositivos Maiores --- */
+@media (min-width: 768px) {
+    .login-container {
+        padding: 40px;
+    }
+    
+    .header h1 {
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="{% static 'home_css/home.css'%}">
+</head>
+<body>
+    <div class="topo">
+        <header>
+            <h1><span>FAKE- E-comm</span>erce</h1>
+            <input type="text" placeholder="BUSCAR" id="campo-busca">
+            <a href="{% url 'carrinho'%}" >🛒</a>
+        </header>
+    </div>
+     {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-{{msg.tags}}" id="messages">
+            {{msg}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    <div class="baner">
+        <img src="{% static 'home_img/foto_baner.png' %}" alt="baner">
+        <h1>A melhor loja <br> de <br> itens esportivos <br> para motos</h1>
+    </div>
+    <div class="categorias">
+        <h1>Categorias</h1>
+        {% for categoria in categorias %}
+        <a href="{% url 'filtro' categoria.slug %}">
+            <div>
+                <h3> {{categoria.nome}} </h3>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <main>
+        <div class="conteine_produtos">
+            <div class="produtos">
+                {% for produto in produtos %}
+                <a href="{% url 'detalhe_produto' produto.slug %}" class="link-produto">
+                <div class="card-produto" data-nome-produto="{{ produto.nome|lower }}">
+                        <img src="{{ produto.capa.url }}" alt="{{ produto.nome }}">
+                        <div class="info-produto">
+                            <h3>{{ produto.nome }}</h3>
+                        </div>
+                        <p class="preco" data-valor="{{ produto.valor|floatformat:2 }}"></p> 
+                    </div>
+                </a>
+                {% empty %}
+                <p>Nenhum produto encontrado.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'home_js/home.js'%}"></script>
+</body>
+</html>

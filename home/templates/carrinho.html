@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FAKE Carrinho De Compras</title>
+    <link rel="stylesheet" href="{% static 'home_css/carrinho.css'%}">
+</head>
+<body>
+    {% if massages %}
+        {% for msg in messages %}
+        <div class="alert alert-{{msg.tags}}" id="massages">
+            {{msg}}
+        </div>
+        {% endfor %}
+    {% endif %} 
+    <div class="topo">
+        <h1><span>FAKE-CARRINHO</span> DE COMPRAS</h1>
+    </div>
+    <div class="geral">
+        <div class="produto-carrinho">
+            {% if cart_items %}
+                {% for item in cart_items %}
+                <div class="produto">
+                    
+                    <a href="{% url 'detalhe_produto' item.produtos.slug %}">
+                        <div class="conteine-img">
+                            <img src="{{item.produtos.capa.url}}">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <h3>{{item.produtos.nome}}</h3>
+                            </div>
+                            <div class="descrition">
+                                <p>{{item.produtos.descrition}}</p>
+                            </div>
+                            <div class="valores">
+                                <p  class="valor_total" data-valor="{{item.produtos.valor}}"></p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <div class="info2">
+                        <div class="botoes">
+                            <form action="{% url 'excluir_item' item.produtos.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-excluir" >Excluir</button>
+                            </form>
+                        </div>
+                        <div class="quantidade">
+                            <p class="quantidade_p" data-quantidade="{{item.quantidade}}" >Quantidade {{item.quantidade}}x</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            {% else %}
+            <p class="vazio">Carrinho vazio</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="{% static 'home_js/carrinho.js'%}" ></script>
+</body>
+</html>

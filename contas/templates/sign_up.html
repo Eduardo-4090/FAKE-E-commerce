@@ -1,0 +1,28 @@
+{% extends 'login.html'%}
+
+{% block title %}
+Cadastro
+{% endblock %}
+
+{% block h1 %}
+<h1>CADASTRO</h1>
+{% endblock %}
+
+{% block form %} 
+<form action="{% url 'cadastro'%}" method="POST">
+    {% csrf_token %}
+    <label>Usuário</label>
+    <input type="text" name="username" placeholder="Nome de Usuário" required autocomplete="off">
+
+    <label>Email</label>
+    <input type="email"name="email" placeholder="Seu Email" required autocomplete="off">
+    
+    <label>Senha</label>
+    <input type="password"name="password" placeholder="Sua Senha" required autocomplete="off">
+
+    <a href="{% url 'login'%}">Já tem uma conta?</a>
+
+    <input type="submit" value="Cadastrar" class="submit-button"> 
+</form>
+
+{% endblock %}

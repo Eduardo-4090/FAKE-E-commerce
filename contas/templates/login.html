@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Login
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'contas_css/base.css'%}">
+</head>
+<body>
+    <div class="msg">
+        {% for msg in messages %}
+            <div class="alert alert-{{ msg.tags }}">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="login-container">
+        <div class="header">
+            {% block h1 %}
+            <h1>LOGIN</h1>
+            {% endblock %}
+        </div>
+        <div class="forms-area">
+            {% block form %}
+            <form action="{% url 'login'%}" method="POST">
+                {% csrf_token %}
+                <label>Nome de usuario</label>
+                <input type="text" name="username" placeholder="Usuario" required autocomplete="off">
+
+                <label >Senha</label>
+                <input type="password"  name="password" placeholder="Senha" required autocomplete="off">
+                <a href="{% url 'cadastro'%}">É novo por aqui?</a>
+
+                <input type="submit" value="Entrar" class="submit-button">
+            </form>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

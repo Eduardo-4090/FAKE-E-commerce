@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'home_css/produto.css'%}">
+</head>
+<body>
+    <div class="topo">
+        <header>
+            <h1>FAKE E-commerce</h1>
+            <input type="text" placeholder="BUSCAR">
+            <a href="{% url 'carrinho'%}" >🛒</a>
+        </header>
+    </div>
+    {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-{{msg.tags}}" id="messages">
+            {{msg}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    <main>
+        <section class="conteine-produto">
+            <section class="imgs">
+                <div class="img-principal">
+                    <img src="{{slug_url.capa.url}}" alt="{{slug_url.nome}}">
+                </div>
+                <div class="conteine-img">
+                    <div class="mini-img">
+                        <img src="{{slug_url.capa.url}}" alt="{{slug_url.nome}}">
+                    </div>
+                    {% for img in slug_url.galeria_set.all %}
+                    <div class="mini-img">
+                        <img src="{{img.imagem_opcional.url}}">
+                    </div>
+                    {% empty %}
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="info-produto">
+                <div class="titulo">
+                    <h2>{{slug_url.nome}}</h2>
+                </div>
+                <div class="preco-produto">
+                    <p class="preco" data-valor="{{slug_url.valor}}"></p>
+                </div>
+
+                <div class="acao-compra">
+                    <button class="btn-comprar">COMPRAR AGORA</button>
+                    <button class="btn-carrinho">ADICIONAR AO CARRINHO</button>
+                </div>
+            </section>
+        </section>
+        <section>
+            <div class="conteine-descrition">
+                <div class="descritin">
+                    <h1>DESCRIÇÃO</h1>
+                </div>
+                <div class="info-descrition">
+                    <p>{{slug_url.descrition}}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <form action="{% url 'add-carrinho'%}" method="POST" style="display: none;" id="add-carrinho-form">
+        {% csrf_token %}
+        <input type="hidden" name="produto_id" value="{{slug_url.id}}">
+        <input type="hidden" name="quantidade" value="1">
+        <input type="text" name="produto_slug" value="{{slug_url.slug}}">
+    </form>
+    <script src="{% static  'home_js/produto.js'%}"></script>
+</body>
+</html>
