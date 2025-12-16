@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['e-commerce-edu-dev.up.railway.app']
+ALLOWED_HOSTS = ['e-commerce-edu.up.railway.app']
 
 
 # Application definition
