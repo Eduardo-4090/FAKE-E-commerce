@@ -119,6 +119,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join( BASE_DIR / 'media')
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 # Detecta HTTPS via proxy do Railway
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
