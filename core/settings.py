@@ -123,15 +123,13 @@ MEDIA_ROOT = '/e-commerce/media'
 
 # Detecta HTTPS via proxy do Railway
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 
-# Messages (Django)
-from django.contrib.messages import constants as messages
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
