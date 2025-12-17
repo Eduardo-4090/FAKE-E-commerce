@@ -5,24 +5,24 @@ from django.contrib import messages
 
 def login_view(request):
     if request.method == "POST":
-        nome = request.POST.get('username').lower()
-        senha = request.POST.get('password').lower()
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-        try:
-            if not nome or not senha:
-                messages.error(request ,'Todos os campos são obrigatórios.')
-                return redirect('login')
-            
-            user = authenticate(request , username=nome , password=senha )
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-        except:
-            messages.error(request ,' Algo deu errado , tente novamente')
+        if not username or not password:
+            messages.error(request, 'Todos os campos são obrigatórios.')
             return redirect('login')
 
-    else:
-        return render(request , 'login.html')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Login realizado com sucesso!')
+            return redirect('home')
+        else:
+            messages.error(request, 'Usuário ou senha inválidos.')
+            return redirect('login')
+
+    return render(request, 'login.html')
 
 def sign_up(request):
     if request.method =="POST":

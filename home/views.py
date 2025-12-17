@@ -56,6 +56,8 @@ def add_carrinho(request):
             cart_item = cart_item_exists.first()
             cart_item.quantidade += quantidade
             cart_item.save()
+            messages.success(request , 'Item Adicionao ao carrinho')
+            return redirect('detalhe_produto', produto_slug=produto_slug)
         else:
             CartItem.objects.create(
                 cart=cart,
@@ -63,7 +65,7 @@ def add_carrinho(request):
                 quantidade=quantidade
             )
             messages.success(request , 'Item Adicionao ao carrinho')
-        return redirect('detalhe_produto', produto_slug=produto_slug)
+            return redirect('detalhe_produto', produto_slug=produto_slug)
     else:
         messages.error(request, 'Método de requisição inválido.')
         return redirect('home')
@@ -75,10 +77,10 @@ def excluir_item(request, item):
         if item_obejto.quantidade > 1:
             item_obejto.quantidade -=1
             item_obejto.save()
-            messages.success(request , 'Item Excluido com succeso')
             return redirect('carrinho')
         else:
             item_obejto.delete()
+            messages.success(request , 'Item Excluido com succeso')
             return redirect('carrinho')
 
     else:
