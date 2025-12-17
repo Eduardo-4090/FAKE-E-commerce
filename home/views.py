@@ -62,6 +62,7 @@ def add_carrinho(request):
                 produtos=produto,
                 quantidade=quantidade
             )
+            messages.success(request , 'Item Adicionao ao carrinho')
         return redirect('detalhe_produto', produto_slug=produto_slug)
     else:
         messages.error(request, 'Método de requisição inválido.')
