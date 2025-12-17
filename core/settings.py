@@ -127,8 +127,8 @@ CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
 # **LINHA ESSENCIAL:** Define Cloudinary como o sistema de armazenamento padrão
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join( BASE_DIR / 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join( BASE_DIR / 'media')
 
 # Detecta HTTPS via proxy do Railway
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
