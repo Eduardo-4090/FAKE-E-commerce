@@ -29,8 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',#
-    'cloudinary',#
     'home',
     'contas',
     ]
@@ -119,16 +117,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = (os.path.join(BASE_DIR / 'staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #
 
-
-CLOUDINARY_CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
-CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
-CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
-
-# **LINHA ESSENCIAL:** Define Cloudinary como o sistema de armazenamento padrão
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join( BASE_DIR / 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/e-commerce/media'
 
 # Detecta HTTPS via proxy do Railway
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
