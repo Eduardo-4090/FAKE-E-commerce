@@ -57,18 +57,9 @@ header {
     margin: auto;
     width: 100%;
 }
-
-header input {
-    width: 45%;
-    max-width: 500px;
-    height: 35px;
-    padding-left: 10px;
-    font-size: 15px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+header span {
+    color: orange;
 }
-
 main {
     width: 100%;
     height: 100%;
@@ -222,4 +213,84 @@ main {
 }
 .info-descrition{
     width: 80%;
+}
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+    /* CONTAINER PRINCIPAL */
+    .conteine-produto {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    /* IMAGENS */
+    .imgs {
+        width: 100%;
+        flex: none;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .img-principal {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .conteine-img {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .mini-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* INFO DO PRODUTO */
+    .info-produto {
+        width: 100%;
+        flex: none;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+    }
+
+    /* TÍTULO */
+    .titulo {
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .titulo h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    /* PREÇO */
+    .preco-produto {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .preco-produto .preco {
+        font-size: 28px;
+    }
+
+    /* BOTÕES */
+    .acao-compra button {
+        font-size: 16px;
+        padding: 14px;
+    }
+    .info-descrition {
+        width: 100%;
+    }
+
+    .info-descrition p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
 }

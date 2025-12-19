@@ -5,7 +5,7 @@ from django.contrib import messages
 
 def login_view(request):
     if request.method == "POST":
-        username = request.POST.get('username')
+        username = request.POST.get('username').lower()
         password = request.POST.get('password')
 
         if not username or not password:
@@ -26,7 +26,7 @@ def login_view(request):
 
 def sign_up(request):
     if request.method =="POST":
-        nome = request.POST.get('username')
+        nome = request.POST.get('username').lower()
         email = request.POST.get('email')
         senha = request.POST.get('password')
 
